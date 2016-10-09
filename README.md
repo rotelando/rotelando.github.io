@@ -1,49 +1,99 @@
-![preview Long Haul](/preview.jpg)
+## Jasper
 
-Long Haul is a minimal jekyll theme built with COMPASS / SASS / SUSY and focuses on long form blog posts. It is meant to be used as a starting point for a jekyll blog/website.
+[![Build Status](https://travis-ci.org/biomadeira/jasper.svg?branch=master)](https://travis-ci.org/biomadeira/jasper)
+[![Ruby](https://img.shields.io/badge/ruby-2.1.1-blue.svg?style=flat)](http://travis-ci.org/biomadeira/jasper)
+[![Jekyll](https://img.shields.io/badge/jekyll-3.0.0-blue.svg?style=flat)](http://travis-ci.org/biomadeira/jasper)
 
-If you really enjoy Long Haul and want to give me credit somewhere on the internet send or tweet out your experience with Long Haul and tag me [@brianmaierjr](https://twitter.com/brianmaierjr).
+This is a port of Ghost's default theme [Casper](https://github.com/tryghost/casper) for Jekyll inspired by [Kasper](https://github.com/rosario/kasper). 
 
-####[View Demo](http://brianmaierjr.com/long-haul)
+You might well ask at this point why bother making a new Casper's clone? 
+Although this is inspired by Kasper, there are several **additional** features which make this port closer 
+to the original theme. Besides, I have recently updated it to match the current version of the theme.
 
-## Features
 
-- Minimal, Type Focused Design
-- Built with SASS + COMPASS
-- Layout with SUSY Grid
-- SVG Social Icons
-- Responsive Nav Menu
-- XML Feed for RSS Readers
-- Contact Form via Formspree
-- 5 Post Loop with excerpt on Home Page
-- Previous / Next Post Navigation
-- Estimated Reading Time for posts
-- Stylish Drop Cap on posts
-- A Better Type Scale for all devices
+## Live demo
 
-## Setup
+[Jasper Live Demo](https://biomadeira.github.io/jasper)
 
-1. [Install Jekyll](http://jekyllrb.com)
-2. Fork the [Long Haul repo](http://github.com/brianmaierjr/long-haul)
-3. Clone it
-4. [Install Bundler](http://bundler.io/)
-5. Run `bundle install`
-6. Run Jekyll `jekyll serve -w`
-7. Run `compass watch`
-8. Customize!
+[Casper's Original Here](https://demo.ghost.io)
 
-## Site Settings
 
-The main settings can be found inside the `_config.yml` file:
+## Screenshots
 
-- **title:** title of your site
-- **description:** description of your site
-- **url:** your url
-- **paginate:** the amount of posts displayed on homepage
-- **navigation:** these are the links in the main site navigation
-- **social** diverse social media usernames (optional)
-- **google_analytics** Google Analytics key (optional)
+**Home page**
+![home page](https://raw.githubusercontent.com/biomadeira/jasper/master/assets/images/jasper_screen1.png)
 
-## License
+**Post page**
+![post page](https://raw.githubusercontent.com/biomadeira/jasper/master/assets/images/jasper_screen2.png)
 
-This is [MIT](LICENSE) with no added caveats, so feel free to use this Jekyll theme on your site without linking back to me or using a disclaimer.
+**Author page**
+![author page](https://raw.githubusercontent.com/biomadeira/jasper/master/assets/images/jasper_screen3.png)
+
+**Related posts page**
+![tag page](https://raw.githubusercontent.com/biomadeira/jasper/master/assets/images/jasper_screen4.png)
+
+**Tags page with opened sidebar**
+![sidebar page](https://raw.githubusercontent.com/biomadeira/jasper/master/assets/images/jasper_screen5.png)
+
+**404 page**
+![related page](https://raw.githubusercontent.com/biomadeira/jasper/master/assets/images/jasper_screen6.png)
+
+## Jasper theme includes
+
+* Pagination
+* Author page (New 07.02.2015)
+* Tag page(s) (New 07.02.2015)
+* 404 page (New 07.02.2015)
+* Toggleable sliding sidebar (New 07.02.2015)
+* Related posts view (New 30.10.2015)
+* Tag description(s) (New 30.10.2015)
+* Code Syntax Highlight (New 24.11.2015)
+* Code Syntax Highlight with [highlight.js](https://highlightjs.org/) **(New 06.04.2016)**
+* Rss updated to Jekyll 3.0 **(New 06.04.2016)** 
+* Google Analytics tracking
+* Author's profile with picture
+* Disqus comments (not Ghost standard)
+
+## How to use it
+
+### Deployment
+
+**Important:**  For security reasons, Github doesn't allow plugins (under _plugins/) when deploying with Github Pages. This means:
+
+**1)** that we need to generate your site locally (more details below) and push the resulting HTML to a Github repository;
+
+**2)** built the site with [travis-ci](https://travis-ci.org/) (with goodies from [jekyll-travis](https://github.com/mfenner/jekyll-travis)) automatically pushing the generated *_site/* files to your *gh-pages* branch.
+ This later approach is the one I am currently using to generate the live demo.
+
+For option **1)** simply clone this repository (*master branch*), and then run `jekyll serve` inside the directory. Upload the resulting *_site/* contents to your repository (*master branch* if uploading as your personal page (username.github.io) or *gh-pages branch* if uploading as a project page (as for the [demo](https://github.com/biomadeira/jasper/tree/gh-pages)).
+
+For option **2)** you will need to set up travis-ci for your personal fork. Briefly all you need then is to change your details in *[\_config.yml](_config.yml)* so that you can push to your github repo. You will also need to generate a secure key to add to your *[.travis.yml](.travis.yml)* (you can find more info on how to do it in that file). Also make sure you read the documentation from [jekyll-travis](https://github.com/mfenner/jekyll-travis). This approach has clear advantages in that you simply push changes to your files and all the html files are generated for you. Also you get to know if everything is still fine with your site builds. Don't hesitate to contact me if you still have any issues (see below about issue tracking).
+
+### Author pages
+
+As discussed [here](https://github.com/biomadeira/jasper/issues/3), in order to properly generate author pages you need to rename the field *categories* in the front matter of every post to match that of your *username* as defined in the *[\_config.yml](_config.yml)* file.
+This probably means that with a bit of hacking you could in principle generate multiple author blogs. Check this [link](https://github.com/biomadeira/jasper/issues/10) for more on working with multiple authors...
+
+## Issues and contributing 
+
+This install builds well with Ruby v2.1.1 and Jekyll v3.0.0. If you run into any problems please log them on the [issue tracker](https://github.com/biomadeira/jasper/issues).
+
+Feel free pull-request your patches and fixes.
+
+## Thanks 
+
+
+Many thanks to the Ghost team for all the design work that allows to make this clone possible. Also many thanks to all contributors, that help keeping the project alive and updated :smile:
+
+
+## Copyright & License
+
+Copyright (C) 2015 - Released under the MIT License.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
